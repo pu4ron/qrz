@@ -12,6 +12,6 @@ sudo chmod 755 install
 
 sudo chmod +x install
 
-./install
+sudo  ./install
 
 
