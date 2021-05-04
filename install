@@ -68,7 +68,7 @@ then
     
 fi 
 
-sudo rm -R /home/pi-star/pi
+sudo rm -R /home/pi-star/qrz
 
 echo -e "* \033[01;32mFim! \033[01;37m"
 sleep 2
