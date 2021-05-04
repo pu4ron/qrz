@@ -1,0 +1,75 @@
+#!/bin/bash
+#
+################################################
+#                                              #
+#        Por: Ronualdo JSA - PU4RON            #
+#                                              #
+#                Janauba/MG                    #
+#                                              #
+################################################
+#
+clear
+echo -e "\033[01;37m****************************************\033[00;37m"
+echo -e "\033[01;37m*                                      *\033[00;37m"
+echo -e "\033[01;37m*          \033[04;32mRONUALDO - PU4RON\033[00;37m           *"
+echo -e "\033[01;37m*                                      *\033[00;37m"
+echo -e "\033[01;37m****************************************\033[00;37m"
+echo ""
+echo ""
+sleep 1
+
+dir="/etc/pistar-css.ini"
+
+sudo mount -o remount,rw /
+
+read -p "* Continuar? (S/N) " -n 1 -r
+
+case "$REPLY" in 
+
+  s|S ) echo "" ;;
+  n|N ) exit 0 ;;
+    * ) exit 0 ;;
+     
+esac
+
+daystamp(){
+        date +"%d.%m.%y"
+}
+timestamp(){
+        date +"%T"
+}
+
+echo ""
+echo "* Backup..."
+sudo cp  "$dir"    "$dir"-$(daystamp)_$(timestamp)
+sleep 2
+
+
+if [ -f "$dir" ]
+
+then 
+    echo ""
+    echo "* Add regras..."
+    echo ""
+    sleep 2
+    sudo chmod 777 "$dir"
+    
+    echo " "                   >> "$dir" 
+    echo "[Lookup]"            >> "$dir"
+    echo "Service=QRZ"         >> "$dir"
+    echo "popupWidth=800"      >> "$dir"
+    echo "popupHeight=700"     >> "$dir"
+    echo " "                   >> "$dir"
+
+    echo "* Regras adicionadas."
+    echo ""
+    echo ""
+    sleep 2
+    
+fi 
+
+sudo rm -R /home/pi-star/pi
+
+echo -e "* \033[01;32mFim! \033[01;37m"
+sleep 2
+echo ""
