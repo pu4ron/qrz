@@ -18,8 +18,6 @@ echo ""
 echo ""
 sleep 1
 
-dir="/etc/pistar-css.ini"
-
 sudo mount -o remount,rw /
 
 read -p "* Continuar? (S/N) " -n 1 -r
@@ -39,15 +37,16 @@ timestamp(){
         date +"%T"
 }
 
+dir="/etc/pistar-css.ini"
+
 echo ""
 echo "* Backup..."
 sudo cp  "$dir"    "$dir"-$(daystamp)_$(timestamp)
 sleep 2
 
 
-if [ -f "$dir" ]
+if [ -f "$dir" ]; then 
 
-then 
     echo ""
     echo "* Add regras..."
     echo ""
