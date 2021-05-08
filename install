@@ -1,11 +1,5 @@
 #!/bin/bash
 
-
-
-
-
-
-clear
 echo -e "\033[01;37m****************************************\033[00;37m"
 echo -e "\033[01;37m*                                      *\033[00;37m"
 echo -e "\033[01;37m*          \033[04;32mRONUALDO - PU4RON\033[00;37m           *"
@@ -38,7 +32,7 @@ dir="/etc/pistar-css.ini"
 
 echo ""
 echo "* Backup..."
-sudo cp  "$dir"    "$dir"-$(daystamp)_$(timestamp)
+# sudo cp  "$dir"    "$dir"-$(daystamp)_$(timestamp)
 sleep 2
 
 
